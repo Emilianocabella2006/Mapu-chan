@@ -264,4 +264,4 @@ def parse_cites(text):
     return Markup(replaced)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
