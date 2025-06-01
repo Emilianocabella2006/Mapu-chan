@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ thread[0] }}</h2>
+
+<div class="thread">
+    <p>{{ thread[1] }}</p>
+    {% if thread[2] %}
+        <img src="{{ url_for('static', filename='uploads/' + thread[2]) }}" style="max-width:300px;"><br>
+    {% endif %}
+    <a href="/report?thread_id={{ thread_id }}&board_slug={{ board_slug }}">⚠ Reportar hilo</a>
+</div>
+
+
+{% for post in posts %}
+<div class="post" id="post-{{ post[0] }}">
+    {% if post[2] %}
+        <img src="{{ url_for('static', filename='uploads/' + post[2]) }}" style="max-width:300px;"><br>
+    {% endif %}
+    <p>{{ post[1] | parse_cites }}</p>
+    <a href="/report?post_id={{ post[0] }}&thread_id={{ thread_id }}&board_slug={{ board_slug }}">⚠ Reportar post</a>
+</div>
+{% endfor %}
+
+<div class="post-form">
+  <form method="POST" enctype="multipart/form-data">
+    <textarea name="content" rows="3" placeholder="Responder..." required></textarea><br>
+    <input type="file" name="image" accept="image/*"><br>
+
+    <!-- CAPTCHA -->
+    <img src="{{ url_for('captcha') }}" alt="CAPTCHA"><br>
+    <input type="text" name="captcha" placeholder="Escribí el texto de la imagen" required><br>
+
+    <button type="submit">Postear</button>
+  </form>
+</div>
+{% endblock %}

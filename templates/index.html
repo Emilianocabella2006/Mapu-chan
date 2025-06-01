@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+
+<div class="site-header">
+    <div class="header-title">¿Qué es Mapu-chan?</div>
+    <div class="header-text">
+        <p>Mapu-chan es un foro de discusión anónimo inspirado en los imageboards clásicos como 4chan o Devox.</p>
+        <p>Podés participar en temas como videojuegos, anime, política, deportes y más. No necesitás registrarte para comentar.</p>
+        <p>Usá el sitio con respeto y revisá las <a href="/rules">reglas</a> antes de postear.</p>
+    </div>
+</div>
+
+<h2>Tablones</h2>
+<div class="board-list">
+    <div class="board-column">
+        <ul>
+            <li><a href="/g/">/g/ - Generales</a></li>
+            <li><a href="/v/">/v/ - Videojuegos</a></li>
+            <li><a href="/a/">/a/ - Anime</a></li>
+        </ul>
+    </div>
+    <div class="board-column">
+        <ul>
+            <li><a href="/pol/">/pol/ - Política</a></li>
+            <li><a href="/t/">/t/ - Tecnología</a></li>
+            <li><a href="/d/">/d/ - Deportes</a></li>
+        </ul>
+    </div>
+    <div class="board-column">
+        <ul>
+            <li><a href="/e/">/e/ - Entretenimiento</a></li>
+            <li><a href="/int/">/int/ - Internacional</a></li>
+            <li><a href="/nsfw/">/nsfw/ +18</a></li>
+        </ul>
+    </div>
+</div>
+
+<h2>Hilos populares</h2>
+<div class="popular-grid">
+    {% for thread in threads %}
+    <div class="popular-card">
+        {% if thread[4] %}
+        <a href="/{{ board_map[thread[1]] }}/{{ thread[0] }}/">
+            <img src="{{ url_for('static', filename='uploads/' + thread[4]) }}" class="thumbnail">
+        </a>
+        {% endif %}
+        <strong>{{ thread[2][:50] }}</strong>
+        <p>{{ thread[3][:80] }}...</p>
+    </div>
+    {% endfor %}
+</div>
+
+<hr>
+<div class="stats">
+    <strong>Hilos totales:</strong> {{ total_threads }} |
+    <strong>Post totales:</strong> {{ total_posts }} |
+    <strong>Tablones:</strong> {{ total_boards }}
+</div>
+
+
+{% endblock %}

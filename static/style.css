@@ -1,0 +1,207 @@
+/* Reset y fuente */
+body {
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 13px;
+    background-color: #f0e0d6;
+    color: #800000;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #0000ee;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+/* Contenedor general */
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+/* Encabezado */
+h1 {
+    font-size: 20px;
+    background-color: #af0a0f;
+    color: white;
+    padding: 10px;
+    margin: 0 0 10px 0;
+}
+
+/* Secciones como boards, threads y posts */
+.board, .thread, .post {
+    background-color: #f0e0d6;
+    border: 1px solid #d9bfb7;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+/* Formularios */
+form textarea,
+form input[type="text"] {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    background-color: #fff;
+    font-size: 13px;
+}
+
+form button {
+    padding: 6px 10px;
+    background-color: #af0a0f;
+    color: white;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #8b0000;
+}
+
+/* Index de boards (tipo /g/, /v/) */
+.board-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    background-color: #eeddbb;
+    padding: 10px;
+    border: 1px solid #d9bfb7;
+}
+
+.board-column {
+    flex: 1 1 200px;
+}
+
+.board-column ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.board-column li {
+    margin-bottom: 4px;
+}
+
+/* Títulos */
+h2 {
+    font-size: 16px;
+    color: #990000;
+    margin-top: 0;
+}
+
+.popular-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.popular-card {
+    width: 200px;
+    border: 1px solid #cc9999;
+    background-color: #fff0e5;
+    padding: 10px;
+    text-align: center;
+    font-size: 13px;
+}
+
+.popular-card img.thumbnail {
+    width: 100%;
+    height: auto;
+    max-height: 150px;
+    object-fit: cover;
+    margin-bottom: 8px;
+}
+
+.stats {
+    margin-top: 30px;
+    background: #f0e0d6;
+    padding: 10px;
+    border: 1px solid #d9bfb7;
+    font-size: 14px;
+    text-align: center;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+th, td {
+    border: 1px solid #ccc;
+    padding: 6px;
+    text-align: left;
+}
+
+th {
+    background-color: #f0e0d6;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 10px;
+}
+th, td {
+  border: 1px solid #ccc;
+  padding: 6px;
+  text-align: left;
+}
+th {
+  background-color: #f0e0d6;
+}
+.board-banner {
+  text-align: center;
+  margin: 20px auto 10px;
+}
+
+.board-banner img {
+  max-width: 350px;
+  max-height: 100px;
+  width: auto;
+  height: auto;
+  border: 1px solid #666;
+  border-radius: 6px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+}
+.cite-link {
+  color: #0077cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cite-link:hover {
+  text-decoration: underline;
+}
+
+/* Estilo visual para hilos sticky */
+.sticky-thread {
+  background-color: #fff9e6;
+  border-left: 4px solid #d2691e;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+.sticky-label {
+  color: #d2691e;
+  font-size: 0.9em;
+  font-weight: bold;
+  margin-left: 8px;
+}
+
+.cite-link {
+  color: #3366cc;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.cite-link:hover {
+  text-decoration: underline;
+}

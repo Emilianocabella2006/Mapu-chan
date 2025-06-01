@@ -1,0 +1,11 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Ingreso de Moderador</h2>
+<form method="POST">
+    <input type="password" name="password" placeholder="Clave de moderador" required>
+    <button type="submit">Ingresar</button>
+</form>
+{% if get_flashed_messages() %}
+    <p style="color:red;">{{ get_flashed_messages()[0] }}</p>
+{% endif %}
+{% endblock %}

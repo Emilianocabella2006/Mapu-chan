@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Reportar contenido</h2>
+<form method="POST">
+    <input type="hidden" name="thread_id" value="{{ thread_id }}">
+    <input type="hidden" name="post_id" value="{{ post_id }}">
+    <input type="hidden" name="board_slug" value="{{ board_slug }}">
+
+    <label for="reason">Motivo del reporte:</label><br>
+    <select name="reason" required>
+        <option value="Spam">Spam</option>
+        <option value="Contenido ilegal">Contenido ilegal</option>
+        <option value="Acoso">Acoso</option>
+        <option value="Otro">Otro</option>
+    </select><br><br>
+    <button type="submit">Enviar reporte</button>
+</form>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>{{ board_name }} (/{{ board_slug }}/)</h2>
+
+<div class="board-banner">
+  <img src="{{ url_for('static', filename='banners/' + board_slug + '.png' ) }}"
+       alt="Banner de {{ board_slug }}">
+</div>
+
+<div class="board">
+<form method="POST" enctype="multipart/form-data">
+    <input type="text" name="title" placeholder="Título del hilo" required><br>
+    <textarea name="content" rows="4" placeholder="Contenido del hilo" required></textarea><br>
+    <input type="file" name="image" accept="image/*"><br>
+
+    
+    <img src="{{ url_for('captcha') }}" alt="CAPTCHA"><br>
+    <input type="text" name="captcha" placeholder="Escribí el texto de la imagen" required><br>
+
+    <button type="submit">Crear hilo</button>
+</form>
+
+</div>
+
+{% for thread in threads %}
+<div class="thread {% if thread[2] %}sticky-thread{% endif %}">
+    <a href="{{ url_for('thread', board_slug=board_slug, thread_id=thread[0]) }}">
+        <strong>{{ thread[1] }}</strong>
+        {% if thread[2] %}
+            <span class="sticky-label">[Sticky]</span>
+        {% endif %}
+    </a>
+</div>
+{% endfor %}
+{% endblock %}

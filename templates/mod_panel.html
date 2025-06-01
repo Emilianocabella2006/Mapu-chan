@@ -1,0 +1,61 @@
+{% extends "layout.html" %}
+{% block content %}
+<h2>Panel de Moderación</h2>
+
+<h3>Hilos</h3>
+<table>
+<tr><th>ID</th><th>Board</th><th>Título</th><th>Contenido</th><th>Sticky</th><th>Acción</th></tr>
+{% for thread in threads %}
+<tr>
+    <td>{{ thread[0] }}</td>
+    <td>/{{ thread[4] }}/</td>
+    <td>{{ thread[1] }}</td>
+    <td>{{ thread[2][:100] }}</td>
+    <td>
+      {% if thread[5] == 1 %}
+        <span style="color: green;">Sí</span>
+        <a href="{{ url_for('toggle_sticky', thread_id=thread[0]) }}">❌ Quitar</a>
+      {% else %}
+        <a href="{{ url_for('toggle_sticky', thread_id=thread[0]) }}">📌 Fijar</a>
+      {% endif %}
+    </td>
+    <td>
+        <a href="{{ url_for('delete_thread', thread_id=thread[0]) }}">🗑️ Borrar</a>
+    </td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>Posts</h3>
+<table>
+<tr><th>ID</th><th>Thread ID</th><th>Contenido</th><th>Acción</th></tr>
+{% for post in posts %}
+<tr>
+    <td>{{ post[0] }}</td>
+    <td>{{ post[3] }}</td>
+    <td><td>{{ (post[2] or '')[:100] }}</td></td>
+    <td><a href="{{ url_for('delete_post', post_id=post[0]) }}">🗑️ Borrar</a></td>
+</tr>
+{% endfor %}
+</table>
+
+<h3>📣 Reportes recibidos</h3>
+<table>
+<tr>
+  <th>ID</th>
+  <th>Tipo</th>
+  <th>ID reportado</th>
+  <th>Motivo</th>
+  <th>Fecha</th>
+</tr>
+{% for r in reports %}
+<tr>
+  <td>{{ r[0] }}</td>
+  <td>{{ 'Post' if r[2] else 'Hilo' }}</td>
+  <td>{{ r[2] if r[2] else r[1] }}</td>
+  <td>{{ r[3] }}</td>
+  <td>{{ r[4] }}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
