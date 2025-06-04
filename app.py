@@ -7,10 +7,10 @@ import re
 from markupsafe import Markup 
 from PIL import Image, ImageDraw, ImageFont, ImageFilter
 import random, string, io 
-from flask import send_file
+from flask import send_file 
 
 App_secret_key = 'c3b0f8d1e2a4f5b6c7d8e9f0a1b2c3d4' 
-MOD_KEY = '4196fecccd4ff648e000ca25b5f44171'
+MOD_KEY = '4196fecccd4ff648e000ca25b5f44171' 
 app = Flask(__name__)
 app.secret_key = App_secret_key
 
@@ -225,7 +225,7 @@ def captcha():
     draw = ImageDraw.Draw(img)
 
     try:
-        font = ImageFont.truetype("arial.ttf", 36)
+        font = ImageFont.truetype("DejaVuSans.ttf", 36)
     except:
         font = ImageFont.load_default()
 
